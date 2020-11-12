@@ -1,0 +1,20 @@
+service: ebookServer
+app: server-app
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  memorySize: 128
+  timeout: 30
+
+plugins:
+  - serverless-offline
+
+functions:
+  getBooks:
+    handler: handler.getBooks
+    events:
+      - http:
+          path: /getBooks
+          method: get
+          cors: true
