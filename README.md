@@ -11,4 +11,8 @@ to test locally you can run
 
 $ Serverless Offline
 
-This will start a server for the project locally. and it will give you the end point to where you can test in the command line
+This will start a server for the project locally. and it will give you the end points to where you can test in the command line
+
+if you want to deploy to AWS, be sure to have Key set up in your AWS CLI and run 
+
+$ serverless deploy
