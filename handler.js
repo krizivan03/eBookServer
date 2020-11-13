@@ -1,9 +1,16 @@
 const db = require('./db_connect');
+// delete from AddedBy where user_id=60000 AND book_id=3508;
+// Select book_id,title,image_url,name FROM writtenby NATURAL JOIN book NATURAL JOIN author order by RANDOM() limit 25
+// INSERT INTO AddedBy Values ('4000','60000'); book_id user_id
+// INSERT INTO Users Values ((Select max(user_id)+1 from users), 'password' );
+// Select max(user_id) from users
+// Select * from users where user_id=53427;
+// Select title from book where title LIKE '%Harry Potter%';
 
 module.exports.getBooks = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
     
-    const sql = 'Select "name",image_url,title FROM writtenby NATURAL JOIN book NATURAL JOIN author limit 10';
+    const sql = 'Select book_id,title,image_url,name FROM writtenby NATURAL JOIN book NATURAL JOIN author order by RANDOM() limit 25';
 // callback(null, {
 //     //       statusCode: 200,
 //     //       body: JSON.stringify(res)
