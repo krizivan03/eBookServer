@@ -36,14 +36,11 @@ module.exports.getBooks = (event, context, callback) => {
         })
       })
   };
-  module.exports.getSearch = (event, context, callback) => {
+  module.exports.getaSearch = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    // const { searchval } = event.pathParameter;
-    const sql = 'Select * from book where title LIKE \'%Harry Potter%\'' ;
-// callback(null, {
-//     //       statusCode: 200,
-//     //       body: JSON.stringify(res)
-//     //     })
+    
+    let val = event.pathParameters.searchval;
+    const sql = 'Select book_id,title,image_url,name from writtenby NATURAL JOIN book NATURAL JOIN author where title LIKE \'%'+val+'%\'';
 
     db.query(sql)
       .then(res => {

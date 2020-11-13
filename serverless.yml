@@ -19,9 +19,9 @@ functions:
           method: get
           cors: true
   getSearch:
-    handler: handler.getSearch
+    handler: handler.getaSearch
     events:
       - http:
-          path: /getSearch/{searchval}
+          path: /getaSearch/{searchval}
           method: get
           cors: true
