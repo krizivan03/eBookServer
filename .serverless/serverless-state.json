@@ -161,7 +161,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/ebookServer/dev/1605134866457-2020-11-11T22:47:46.457Z/ebookServer.zip"
+                "S3Key": "serverless/ebookServer/dev/1605232611189-2020-11-13T01:56:51.189Z/ebookServer.zip"
               },
               "FunctionName": "ebookServer-dev-getBooks",
               "Handler": "handler.getBooks",
@@ -179,14 +179,14 @@
               "GetBooksLogGroup"
             ]
           },
-          "GetBooksLambdaVersionMKksKqe4X1b3nfT5pCXwiDn9vgx2rLdf7roBaedtWZI": {
+          "GetBooksLambdaVersionbspBNJutkPYMD8eGoK0e2YCA4bzFDUxFiCLwvGd9ik": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetBooksLambdaFunction"
               },
-              "CodeSha256": "rRCg/JU75x0INjCTq3T3AWMNB0ht0SE+cz83Ap24ft8="
+              "CodeSha256": "tLf0PpBhSrvthRheF53I4IVyUtfjsFQrmdK91QH2tU8="
             }
           },
           "ApiGatewayRestApi": {
@@ -304,7 +304,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1605134853895": {
+          "ApiGatewayDeployment1605232598581": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -364,7 +364,7 @@
           "GetBooksLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetBooksLambdaVersionMKksKqe4X1b3nfT5pCXwiDn9vgx2rLdf7roBaedtWZI"
+              "Ref": "GetBooksLambdaVersionbspBNJutkPYMD8eGoK0e2YCA4bzFDUxFiCLwvGd9ik"
             }
           },
           "ServiceEndpoint": {
@@ -502,7 +502,7 @@
         "timeout": 30,
         "runtime": "nodejs10.x",
         "vpc": {},
-        "versionLogicalId": "GetBooksLambdaVersionMKksKqe4X1b3nfT5pCXwiDn9vgx2rLdf7roBaedtWZI"
+        "versionLogicalId": "GetBooksLambdaVersionbspBNJutkPYMD8eGoK0e2YCA4bzFDUxFiCLwvGd9ik"
       }
     },
     "configValidationMode": "warn",
@@ -528,7 +528,7 @@
     "artifact": "/Users/christophercanales/Desktop/CurrentClasses/CSE412/ebookApp/eServer2/.serverless/ebookServer.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/ebookServer/dev/1605134866457-2020-11-11T22:47:46.457Z",
+    "artifactDirectoryName": "serverless/ebookServer/dev/1605232611189-2020-11-13T01:56:51.189Z",
     "artifact": "ebookServer.zip"
   }
 }

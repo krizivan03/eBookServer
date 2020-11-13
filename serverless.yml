@@ -18,3 +18,10 @@ functions:
           path: /getBooks
           method: get
           cors: true
+  getSearch:
+    handler: handler.getSearch
+    events:
+      - http:
+          path: /getSearch/{searchval}
+          method: get
+          cors: true

@@ -36,3 +36,32 @@ module.exports.getBooks = (event, context, callback) => {
         })
       })
   };
+  module.exports.getSearch = (event, context, callback) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+    // const { searchval } = event.pathParameter;
+    const sql = 'Select * from book where title LIKE \'%Harry Potter%\'' ;
+// callback(null, {
+//     //       statusCode: 200,
+//     //       body: JSON.stringify(res)
+//     //     })
+
+    db.query(sql)
+      .then(res => {
+        callback(null, {
+          statusCode: 200,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Methods": "OPTIONS,GET"
+        },
+          body: JSON.stringify(res)
+        })
+      })
+      .catch(e => {
+        console.log(e);
+        callback(null, {
+          statusCode: e.statusCode || 500,
+          body: 'Error: Could not find Todos: ' + e
+        })
+      })
+  };
