@@ -25,3 +25,17 @@ functions:
           path: /getaSearch/{searchval}
           method: get
           cors: true
+  findUser:
+    handler: handler.findUser
+    events:
+      - http:
+          path: /findUser/{searchval}
+          method: get
+          cors: true
+  getUserFavs:
+    handler: handler.getUserFavs
+    events:
+      - http:
+          path: /getUserFavs/{searchval}
+          method: get
+          cors: true

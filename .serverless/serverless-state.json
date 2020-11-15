@@ -167,7 +167,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/ebookServer/dev/1605242063645-2020-11-13T04:34:23.645Z/ebookServer.zip"
+                "S3Key": "serverless/ebookServer/dev/1605245313496-2020-11-13T05:28:33.496Z/ebookServer.zip"
               },
               "FunctionName": "ebookServer-dev-getBooks",
               "Handler": "handler.getBooks",
@@ -185,14 +185,14 @@
               "GetBooksLogGroup"
             ]
           },
-          "GetBooksLambdaVersionI17DTawLts67qvjV8OX2nBew84I3J88Paa2WO3TQ": {
+          "GetBooksLambdaVersionGXISWaZDWPUVTqw8n3vybt2lZqGsfvpvJoai7X88": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetBooksLambdaFunction"
               },
-              "CodeSha256": "7bTEz/uqmCuDyDRVybycIeTpTop31K/MKJH2JlPJx3Q="
+              "CodeSha256": "YaWh7E3QmtiY4LkOfOSd0MmEcEKe2inHEE+pRO7k67Y="
             }
           },
           "GetSearchLambdaFunction": {
@@ -202,7 +202,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/ebookServer/dev/1605242063645-2020-11-13T04:34:23.645Z/ebookServer.zip"
+                "S3Key": "serverless/ebookServer/dev/1605245313496-2020-11-13T05:28:33.496Z/ebookServer.zip"
               },
               "FunctionName": "ebookServer-dev-getSearch",
               "Handler": "handler.getaSearch",
@@ -220,14 +220,14 @@
               "GetSearchLogGroup"
             ]
           },
-          "GetSearchLambdaVersionkRiiZ58buH6nneKMZC4vN08bC6KPHl2bIaeljK4dUyI": {
+          "GetSearchLambdaVersionUG4BjtaS008fDwRRvHkHEM5UeKrpeE8csNZbyBtleA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetSearchLambdaFunction"
               },
-              "CodeSha256": "7bTEz/uqmCuDyDRVybycIeTpTop31K/MKJH2JlPJx3Q="
+              "CodeSha256": "YaWh7E3QmtiY4LkOfOSd0MmEcEKe2inHEE+pRO7k67Y="
             }
           },
           "ApiGatewayRestApi": {
@@ -460,7 +460,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1605242050608": {
+          "ApiGatewayDeployment1605245299872": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -559,13 +559,13 @@
           "GetBooksLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetBooksLambdaVersionI17DTawLts67qvjV8OX2nBew84I3J88Paa2WO3TQ"
+              "Ref": "GetBooksLambdaVersionGXISWaZDWPUVTqw8n3vybt2lZqGsfvpvJoai7X88"
             }
           },
           "GetSearchLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetSearchLambdaVersionkRiiZ58buH6nneKMZC4vN08bC6KPHl2bIaeljK4dUyI"
+              "Ref": "GetSearchLambdaVersionUG4BjtaS008fDwRRvHkHEM5UeKrpeE8csNZbyBtleA"
             }
           },
           "ServiceEndpoint": {
@@ -703,7 +703,7 @@
         "timeout": 30,
         "runtime": "nodejs10.x",
         "vpc": {},
-        "versionLogicalId": "GetBooksLambdaVersionI17DTawLts67qvjV8OX2nBew84I3J88Paa2WO3TQ"
+        "versionLogicalId": "GetBooksLambdaVersionGXISWaZDWPUVTqw8n3vybt2lZqGsfvpvJoai7X88"
       },
       "getSearch": {
         "handler": "handler.getaSearch",
@@ -741,7 +741,7 @@
         "timeout": 30,
         "runtime": "nodejs10.x",
         "vpc": {},
-        "versionLogicalId": "GetSearchLambdaVersionkRiiZ58buH6nneKMZC4vN08bC6KPHl2bIaeljK4dUyI"
+        "versionLogicalId": "GetSearchLambdaVersionUG4BjtaS008fDwRRvHkHEM5UeKrpeE8csNZbyBtleA"
       }
     },
     "configValidationMode": "warn",
@@ -767,7 +767,7 @@
     "artifact": "/Users/christophercanales/Desktop/CurrentClasses/CSE412/ebookApp/eServer2/.serverless/ebookServer.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/ebookServer/dev/1605242063645-2020-11-13T04:34:23.645Z",
+    "artifactDirectoryName": "serverless/ebookServer/dev/1605245313496-2020-11-13T05:28:33.496Z",
     "artifact": "ebookServer.zip"
   }
 }

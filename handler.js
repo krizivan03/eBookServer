@@ -1,11 +1,11 @@
 const db = require('./db_connect');
-// delete from AddedBy where user_id=60000 AND book_id=3508;
-// Select book_id,title,image_url,name FROM writtenby NATURAL JOIN book NATURAL JOIN author order by RANDOM() limit 25
-// INSERT INTO AddedBy Values ('4000','60000'); book_id user_id
-// INSERT INTO Users Values ((Select max(user_id)+1 from users), 'password' );
-// Select max(user_id) from users
-// Select * from users where user_id=53427;
-// Select title from book where title LIKE '%Harry Potter%';
+
+// Select book_id,title,image_url,name FROM writtenby NATURAL JOIN book NATURAL JOIN author order by RANDOM() limit 25 // select all books
+// INSERT INTO AddedBy Values ('4000','60000'); // book_id user_id     // adds books to addedby table (users booklist)
+// delete from AddedBy where user_id=60000 AND book_id=3508; // deletes from addedby table (users booklist)
+// INSERT INTO Users Values ((Select max(user_id)+1 from users), 'password' ); // insert a user with available userid
+// Select * from users where user_id=53427; // find a user
+// Select title from book where title LIKE '%Harry Potter%'; // search book
 
 module.exports.getBooks = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
@@ -41,6 +41,59 @@ module.exports.getBooks = (event, context, callback) => {
     
     let val = event.pathParameters.searchval;
     const sql = 'Select book_id,title,image_url,name from writtenby NATURAL JOIN book NATURAL JOIN author where title LIKE \'%'+val+'%\'';
+
+    db.query(sql)
+      .then(res => {
+        callback(null, {
+          statusCode: 200,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Methods": "OPTIONS,GET"
+        },
+          body: JSON.stringify(res)
+        })
+      })
+      .catch(e => {
+        console.log(e);
+        callback(null, {
+          statusCode: e.statusCode || 500,
+          body: 'Error: Could not find Todos: ' + e
+        })
+      })
+  };
+
+  module.exports.findUser = (event, context, callback) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+    
+    let val = event.pathParameters.searchval;
+    const sql = 'Select * from users where user_id='+val;
+
+    db.query(sql)
+      .then(res => {
+        callback(null, {
+          statusCode: 200,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Methods": "OPTIONS,GET"
+        },
+          body: JSON.stringify(res)
+        })
+      })
+      .catch(e => {
+        console.log(e);
+        callback(null, {
+          statusCode: e.statusCode || 500,
+          body: 'Error: Could not find Todos: ' + e
+        })
+      })
+  };
+  module.exports.getUserFavs = (event, context, callback) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+    
+    let val = event.pathParameters.searchval;
+    const sql = 'Select book_id,title,image_url,name from addedby NATURAL JOIN book NATURAL JOIN writtenby NATURAL JOIN author where user_id ='+val;
 
     db.query(sql)
       .then(res => {
