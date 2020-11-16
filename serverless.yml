@@ -39,3 +39,10 @@ functions:
           path: /getUserFavs/{searchval}
           method: get
           cors: true
+  removeBook:
+    handler: handler.removeBook
+    events:
+      - http:
+          path: /removeBook/{searchval}/{searchval2}
+          method: get
+          cors: true

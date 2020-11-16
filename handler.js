@@ -115,3 +115,30 @@ module.exports.getBooks = (event, context, callback) => {
         })
       })
   };
+  module.exports.removeBook = (event, context, callback) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+    
+    let user_id = event.pathParameters.searchval;
+    let book_id = event.pathParameters.searchval2;
+    const sql = 'DELETE from AddedBy where user_id='+user_id+'AND book_id='+book_id;
+
+    db.query(sql)
+      .then(res => {
+        callback(null, {
+          statusCode: 200,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Methods": "OPTIONS,GET,DELETE"
+        },
+          body: JSON.stringify(res)
+        })
+      })
+      .catch(e => {
+        console.log(e);
+        callback(null, {
+          statusCode: e.statusCode || 500,
+          body: 'Error: No Book in that table: ' + e
+        })
+      })
+  };

@@ -68,6 +68,18 @@
         "LogGroupName": "/aws/lambda/ebookServer-dev-getSearch"
       }
     },
+    "FindUserLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/ebookServer-dev-findUser"
+      }
+    },
+    "GetUserFavsLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/ebookServer-dev-getUserFavs"
+      }
+    },
     "IamRoleLambdaExecution": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -152,7 +164,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/ebookServer/dev/1605245313496-2020-11-13T05:28:33.496Z/ebookServer.zip"
+          "S3Key": "serverless/ebookServer/dev/1605472224348-2020-11-15T20:30:24.348Z/ebookServer.zip"
         },
         "FunctionName": "ebookServer-dev-getBooks",
         "Handler": "handler.getBooks",
@@ -170,14 +182,14 @@
         "GetBooksLogGroup"
       ]
     },
-    "GetBooksLambdaVersionGXISWaZDWPUVTqw8n3vybt2lZqGsfvpvJoai7X88": {
+    "GetBooksLambdaVersionau69Cm2MK2gX6jBcSHyUdqVhAZ3ry2aTwarEx2oYd8": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetBooksLambdaFunction"
         },
-        "CodeSha256": "YaWh7E3QmtiY4LkOfOSd0MmEcEKe2inHEE+pRO7k67Y="
+        "CodeSha256": "IEiE0ONQY3IYu6rezDj0f9tAqj9Crky6+7aOViwlEWc="
       }
     },
     "GetSearchLambdaFunction": {
@@ -187,7 +199,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/ebookServer/dev/1605245313496-2020-11-13T05:28:33.496Z/ebookServer.zip"
+          "S3Key": "serverless/ebookServer/dev/1605472224348-2020-11-15T20:30:24.348Z/ebookServer.zip"
         },
         "FunctionName": "ebookServer-dev-getSearch",
         "Handler": "handler.getaSearch",
@@ -205,14 +217,84 @@
         "GetSearchLogGroup"
       ]
     },
-    "GetSearchLambdaVersionUG4BjtaS008fDwRRvHkHEM5UeKrpeE8csNZbyBtleA": {
+    "GetSearchLambdaVersions4qRCPWcyNKNHbPRw3ND71C0dzcVvLLXMoZsl4JPEU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetSearchLambdaFunction"
         },
-        "CodeSha256": "YaWh7E3QmtiY4LkOfOSd0MmEcEKe2inHEE+pRO7k67Y="
+        "CodeSha256": "IEiE0ONQY3IYu6rezDj0f9tAqj9Crky6+7aOViwlEWc="
+      }
+    },
+    "FindUserLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/ebookServer/dev/1605472224348-2020-11-15T20:30:24.348Z/ebookServer.zip"
+        },
+        "FunctionName": "ebookServer-dev-findUser",
+        "Handler": "handler.findUser",
+        "MemorySize": 128,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs10.x",
+        "Timeout": 30
+      },
+      "DependsOn": [
+        "FindUserLogGroup"
+      ]
+    },
+    "FindUserLambdaVersionE5uZyTZ3dycfvuz5oqniX1ajZDlFOpbIFeOP5j95A": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "FindUserLambdaFunction"
+        },
+        "CodeSha256": "IEiE0ONQY3IYu6rezDj0f9tAqj9Crky6+7aOViwlEWc="
+      }
+    },
+    "GetUserFavsLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/ebookServer/dev/1605472224348-2020-11-15T20:30:24.348Z/ebookServer.zip"
+        },
+        "FunctionName": "ebookServer-dev-getUserFavs",
+        "Handler": "handler.getUserFavs",
+        "MemorySize": 128,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs10.x",
+        "Timeout": 30
+      },
+      "DependsOn": [
+        "GetUserFavsLogGroup"
+      ]
+    },
+    "GetUserFavsLambdaVersion1MqvxmRQxLjjQ5rEueorQwbwzIUobw260YmHYScb5U": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "GetUserFavsLambdaFunction"
+        },
+        "CodeSha256": "IEiE0ONQY3IYu6rezDj0f9tAqj9Crky6+7aOViwlEWc="
       }
     },
     "ApiGatewayRestApi": {
@@ -262,6 +344,60 @@
       "Properties": {
         "ParentId": {
           "Ref": "ApiGatewayResourceGetasearch"
+        },
+        "PathPart": "{searchval}",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceFinduser": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "findUser",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceFinduserSearchvalVar": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceFinduser"
+        },
+        "PathPart": "{searchval}",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceGetuserfavs": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "getUserFavs",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceGetuserfavsSearchvalVar": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceGetuserfavs"
         },
         "PathPart": "{searchval}",
         "RestApiId": {
@@ -359,6 +495,96 @@
         }
       }
     },
+    "ApiGatewayMethodFinduserSearchvalVarOptions": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "MethodResponses": [
+          {
+            "StatusCode": "200",
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true
+            },
+            "ResponseModels": {}
+          }
+        ],
+        "RequestParameters": {},
+        "Integration": {
+          "Type": "MOCK",
+          "RequestTemplates": {
+            "application/json": "{statusCode:200}"
+          },
+          "ContentHandling": "CONVERT_TO_TEXT",
+          "IntegrationResponses": [
+            {
+              "StatusCode": "200",
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+              }
+            }
+          ]
+        },
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceFinduserSearchvalVar"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayMethodGetuserfavsSearchvalVarOptions": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "MethodResponses": [
+          {
+            "StatusCode": "200",
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true
+            },
+            "ResponseModels": {}
+          }
+        ],
+        "RequestParameters": {},
+        "Integration": {
+          "Type": "MOCK",
+          "RequestTemplates": {
+            "application/json": "{statusCode:200}"
+          },
+          "ContentHandling": "CONVERT_TO_TEXT",
+          "IntegrationResponses": [
+            {
+              "StatusCode": "200",
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+              }
+            }
+          ]
+        },
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceGetuserfavsSearchvalVar"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
     "ApiGatewayMethodGetbooksGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
@@ -445,7 +671,93 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1605245299872": {
+    "ApiGatewayMethodFinduserSearchvalVarGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceFinduserSearchvalVar"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "FindUserLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      }
+    },
+    "ApiGatewayMethodGetuserfavsSearchvalVarGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceGetuserfavsSearchvalVar"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "GetUserFavsLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      }
+    },
+    "ApiGatewayDeployment1605472210378": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -456,8 +768,12 @@
       "DependsOn": [
         "ApiGatewayMethodGetbooksOptions",
         "ApiGatewayMethodGetasearchSearchvalVarOptions",
+        "ApiGatewayMethodFinduserSearchvalVarOptions",
+        "ApiGatewayMethodGetuserfavsSearchvalVarOptions",
         "ApiGatewayMethodGetbooksGet",
-        "ApiGatewayMethodGetasearchSearchvalVarGet"
+        "ApiGatewayMethodGetasearchSearchvalVarGet",
+        "ApiGatewayMethodFinduserSearchvalVarGet",
+        "ApiGatewayMethodGetuserfavsSearchvalVarGet"
       ]
     },
     "GetBooksLambdaPermissionApiGateway": {
@@ -533,6 +849,80 @@
           ]
         }
       }
+    },
+    "FindUserLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "FindUserLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
+    },
+    "GetUserFavsLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetUserFavsLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
     }
   },
   "Outputs": {
@@ -544,13 +934,25 @@
     "GetBooksLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetBooksLambdaVersionGXISWaZDWPUVTqw8n3vybt2lZqGsfvpvJoai7X88"
+        "Ref": "GetBooksLambdaVersionau69Cm2MK2gX6jBcSHyUdqVhAZ3ry2aTwarEx2oYd8"
       }
     },
     "GetSearchLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetSearchLambdaVersionUG4BjtaS008fDwRRvHkHEM5UeKrpeE8csNZbyBtleA"
+        "Ref": "GetSearchLambdaVersions4qRCPWcyNKNHbPRw3ND71C0dzcVvLLXMoZsl4JPEU"
+      }
+    },
+    "FindUserLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "FindUserLambdaVersionE5uZyTZ3dycfvuz5oqniX1ajZDlFOpbIFeOP5j95A"
+      }
+    },
+    "GetUserFavsLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "GetUserFavsLambdaVersion1MqvxmRQxLjjQ5rEueorQwbwzIUobw260YmHYScb5U"
       }
     },
     "ServiceEndpoint": {
