@@ -142,3 +142,59 @@ module.exports.getBooks = (event, context, callback) => {
         })
       })
   };
+  module.exports.addBook = (event, context, callback) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+    
+    let user_id = event.pathParameters.searchval;
+    let book_id = event.pathParameters.searchval2;
+    const sql = 'INSERT INTO AddedBy Values ('+book_id+','+user_id+')';
+
+    db.query(sql)
+      .then(res => {
+        callback(null, {
+          statusCode: 200,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Methods": "OPTIONS,GET,DELETE"
+        },
+          body: JSON.stringify(res)
+        })
+      })
+      .catch(e => {
+        console.log(e);
+        callback(null, {
+          statusCode: e.statusCode || 500,
+          body: 'Error: No Book in that table: ' + e
+        })
+      })
+  };
+  module.exports.getReccomend = (event, context, callback) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+    
+    const sql = 'select b.book_id, b.title, a.name, b.image_url From author a join writtenby w on a.author_id=w.author_id join book b on w.book_id=b.book_id join ratedby r on b.book_id=r.book_id where r.rating_point >= 4 Order By random() limit 1';
+// callback(null, {
+//     //       statusCode: 200,
+//     //       body: JSON.stringify(res)
+//     //     })
+
+    db.query(sql)
+      .then(res => {
+        callback(null, {
+          statusCode: 200,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Methods": "OPTIONS,GET"
+        },
+          body: JSON.stringify(res)
+        })
+      })
+      .catch(e => {
+        console.log(e);
+        callback(null, {
+          statusCode: e.statusCode || 500,
+          body: 'Error: Could not find Todos: ' + e
+        })
+      })
+  };

@@ -46,3 +46,17 @@ functions:
           path: /removeBook/{searchval}/{searchval2}
           method: get
           cors: true
+  addBook:
+    handler: handler.addBook
+    events:
+      - http:
+          path: /addBook/{searchval}/{searchval2}
+          method: get
+          cors: true
+  getReccomend:
+    handler: handler.getReccomend
+    events:
+      - http:
+          path: /getReccomend
+          method: get
+          cors: true
