@@ -60,3 +60,17 @@ functions:
           path: /getReccomend
           method: get
           cors: true
+  addUser:
+    handler: handler.addUser
+    events:
+      - http:
+          path: /addUser
+          method: get
+          cors: true
+  getLastID:
+    handler: handler.getLastID
+    events:
+      - http:
+          path: /getLastID
+          method: get
+          cors: true

@@ -198,3 +198,53 @@ module.exports.getBooks = (event, context, callback) => {
         })
       })
   };
+  module.exports.addUser = (event, context, callback) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+    
+    const sql = 'INSERT INTO Users Values ((Select max(user_id)+1 from users), \'password\' )';
+
+    db.query(sql)
+      .then(res => {
+        callback(null, {
+          statusCode: 200,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Methods": "OPTIONS,GET,DELETE"
+        },
+          body: JSON.stringify(res)
+        })
+      })
+      .catch(e => {
+        console.log(e);
+        callback(null, {
+          statusCode: e.statusCode || 500,
+          body: 'Error: No Book in that table: ' + e
+        })
+      })
+  };
+  module.exports.getLastID = (event, context, callback) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+    
+    const sql = 'Select max(user_id) from users';
+
+    db.query(sql)
+      .then(res => {
+        callback(null, {
+          statusCode: 200,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Methods": "OPTIONS,GET,DELETE"
+        },
+          body: JSON.stringify(res)
+        })
+      })
+      .catch(e => {
+        console.log(e);
+        callback(null, {
+          statusCode: e.statusCode || 500,
+          body: 'Error: No Book in that table: ' + e
+        })
+      })
+  };

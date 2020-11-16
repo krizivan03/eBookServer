@@ -86,6 +86,18 @@
         "LogGroupName": "/aws/lambda/ebookServer-dev-removeBook"
       }
     },
+    "AddBookLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/ebookServer-dev-addBook"
+      }
+    },
+    "GetReccomendLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/ebookServer-dev-getReccomend"
+      }
+    },
     "IamRoleLambdaExecution": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -170,7 +182,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/ebookServer/dev/1605485539486-2020-11-16T00:12:19.486Z/ebookServer.zip"
+          "S3Key": "serverless/ebookServer/dev/1605497661459-2020-11-16T03:34:21.459Z/ebookServer.zip"
         },
         "FunctionName": "ebookServer-dev-getBooks",
         "Handler": "handler.getBooks",
@@ -188,14 +200,14 @@
         "GetBooksLogGroup"
       ]
     },
-    "GetBooksLambdaVersiongVIWAHcUhi9BwVYEf4PJW6Wk4IuQGjNcOet4SGCD0": {
+    "GetBooksLambdaVersionH6JyQKvXupbGp6CgqxhN9gj7NHLV8NOtYnKWwHTEM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetBooksLambdaFunction"
         },
-        "CodeSha256": "G8ErBFz0gS1hv/lRZGGFHCyfx+PKuE8Zw00by5+L/XE="
+        "CodeSha256": "wNqpci02cdS0kNh42Ij20z0RH93Bc3b21GAMJ4ZyacE="
       }
     },
     "GetSearchLambdaFunction": {
@@ -205,7 +217,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/ebookServer/dev/1605485539486-2020-11-16T00:12:19.486Z/ebookServer.zip"
+          "S3Key": "serverless/ebookServer/dev/1605497661459-2020-11-16T03:34:21.459Z/ebookServer.zip"
         },
         "FunctionName": "ebookServer-dev-getSearch",
         "Handler": "handler.getaSearch",
@@ -223,14 +235,14 @@
         "GetSearchLogGroup"
       ]
     },
-    "GetSearchLambdaVersionj4mXnQzoqP5jGnJrQfllvyiVafjp86o5S1ae7nJyMM": {
+    "GetSearchLambdaVersionikhoJ8U2fDjfw4cLrjYoRrqx8kMdpbgowxj44cGpyAw": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetSearchLambdaFunction"
         },
-        "CodeSha256": "G8ErBFz0gS1hv/lRZGGFHCyfx+PKuE8Zw00by5+L/XE="
+        "CodeSha256": "wNqpci02cdS0kNh42Ij20z0RH93Bc3b21GAMJ4ZyacE="
       }
     },
     "FindUserLambdaFunction": {
@@ -240,7 +252,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/ebookServer/dev/1605485539486-2020-11-16T00:12:19.486Z/ebookServer.zip"
+          "S3Key": "serverless/ebookServer/dev/1605497661459-2020-11-16T03:34:21.459Z/ebookServer.zip"
         },
         "FunctionName": "ebookServer-dev-findUser",
         "Handler": "handler.findUser",
@@ -258,14 +270,14 @@
         "FindUserLogGroup"
       ]
     },
-    "FindUserLambdaVersionNQSevbIuZPF4QvPDU5yL2otMoE8f2Kwt0o721tSjus": {
+    "FindUserLambdaVersionNQKWGycAU8MgrkrjadLByMPQGNLFCxUQOqmHIkBMFo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "FindUserLambdaFunction"
         },
-        "CodeSha256": "G8ErBFz0gS1hv/lRZGGFHCyfx+PKuE8Zw00by5+L/XE="
+        "CodeSha256": "wNqpci02cdS0kNh42Ij20z0RH93Bc3b21GAMJ4ZyacE="
       }
     },
     "GetUserFavsLambdaFunction": {
@@ -275,7 +287,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/ebookServer/dev/1605485539486-2020-11-16T00:12:19.486Z/ebookServer.zip"
+          "S3Key": "serverless/ebookServer/dev/1605497661459-2020-11-16T03:34:21.459Z/ebookServer.zip"
         },
         "FunctionName": "ebookServer-dev-getUserFavs",
         "Handler": "handler.getUserFavs",
@@ -293,14 +305,14 @@
         "GetUserFavsLogGroup"
       ]
     },
-    "GetUserFavsLambdaVersionctD7ubI7i0QwcgBxEjO7odWMaLw8kpfWWYTfjx4qQg": {
+    "GetUserFavsLambdaVersionjDGjKG2lRA6zg1MeP0pexiRC1zlDG6ZtSdabkrZeuc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetUserFavsLambdaFunction"
         },
-        "CodeSha256": "G8ErBFz0gS1hv/lRZGGFHCyfx+PKuE8Zw00by5+L/XE="
+        "CodeSha256": "wNqpci02cdS0kNh42Ij20z0RH93Bc3b21GAMJ4ZyacE="
       }
     },
     "RemoveBookLambdaFunction": {
@@ -310,7 +322,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/ebookServer/dev/1605485539486-2020-11-16T00:12:19.486Z/ebookServer.zip"
+          "S3Key": "serverless/ebookServer/dev/1605497661459-2020-11-16T03:34:21.459Z/ebookServer.zip"
         },
         "FunctionName": "ebookServer-dev-removeBook",
         "Handler": "handler.removeBook",
@@ -328,14 +340,84 @@
         "RemoveBookLogGroup"
       ]
     },
-    "RemoveBookLambdaVersionGCIdXnKGsHGsTuiY3Y5oh3Pf4htGIkZZyuhUIAmHk": {
+    "RemoveBookLambdaVersionDUpkCIArJSmkLqCiWlrL0LNhFVKtTOhTy0lHLk5zCCs": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RemoveBookLambdaFunction"
         },
-        "CodeSha256": "G8ErBFz0gS1hv/lRZGGFHCyfx+PKuE8Zw00by5+L/XE="
+        "CodeSha256": "wNqpci02cdS0kNh42Ij20z0RH93Bc3b21GAMJ4ZyacE="
+      }
+    },
+    "AddBookLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/ebookServer/dev/1605497661459-2020-11-16T03:34:21.459Z/ebookServer.zip"
+        },
+        "FunctionName": "ebookServer-dev-addBook",
+        "Handler": "handler.addBook",
+        "MemorySize": 128,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs10.x",
+        "Timeout": 30
+      },
+      "DependsOn": [
+        "AddBookLogGroup"
+      ]
+    },
+    "AddBookLambdaVersion4rYqAfHLIDN6jbV9gNj19ijQ7rF7gWAHWq3EVrBRos": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "AddBookLambdaFunction"
+        },
+        "CodeSha256": "wNqpci02cdS0kNh42Ij20z0RH93Bc3b21GAMJ4ZyacE="
+      }
+    },
+    "GetReccomendLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/ebookServer/dev/1605497661459-2020-11-16T03:34:21.459Z/ebookServer.zip"
+        },
+        "FunctionName": "ebookServer-dev-getReccomend",
+        "Handler": "handler.getReccomend",
+        "MemorySize": 128,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs10.x",
+        "Timeout": 30
+      },
+      "DependsOn": [
+        "GetReccomendLogGroup"
+      ]
+    },
+    "GetReccomendLambdaVersionRCNSBJJFghpo70612q9orwBq12ln1gEZhCzzdJEc": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "GetReccomendLambdaFunction"
+        },
+        "CodeSha256": "wNqpci02cdS0kNh42Ij20z0RH93Bc3b21GAMJ4ZyacE="
       }
     },
     "ApiGatewayRestApi": {
@@ -480,6 +562,60 @@
           "Ref": "ApiGatewayResourceRemovebookSearchvalVar"
         },
         "PathPart": "{searchval2}",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceAddbook": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "addBook",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceAddbookSearchvalVar": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceAddbook"
+        },
+        "PathPart": "{searchval}",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceAddbookSearchvalVarSearchval2Var": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceAddbookSearchvalVar"
+        },
+        "PathPart": "{searchval2}",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceGetreccomend": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "getReccomend",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
@@ -710,6 +846,96 @@
         }
       }
     },
+    "ApiGatewayMethodAddbookSearchvalVarSearchval2VarOptions": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "MethodResponses": [
+          {
+            "StatusCode": "200",
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true
+            },
+            "ResponseModels": {}
+          }
+        ],
+        "RequestParameters": {},
+        "Integration": {
+          "Type": "MOCK",
+          "RequestTemplates": {
+            "application/json": "{statusCode:200}"
+          },
+          "ContentHandling": "CONVERT_TO_TEXT",
+          "IntegrationResponses": [
+            {
+              "StatusCode": "200",
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+              }
+            }
+          ]
+        },
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceAddbookSearchvalVarSearchval2Var"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayMethodGetreccomendOptions": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "MethodResponses": [
+          {
+            "StatusCode": "200",
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true
+            },
+            "ResponseModels": {}
+          }
+        ],
+        "RequestParameters": {},
+        "Integration": {
+          "Type": "MOCK",
+          "RequestTemplates": {
+            "application/json": "{statusCode:200}"
+          },
+          "ContentHandling": "CONVERT_TO_TEXT",
+          "IntegrationResponses": [
+            {
+              "StatusCode": "200",
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+              }
+            }
+          ]
+        },
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceGetreccomend"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
     "ApiGatewayMethodGetbooksGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
@@ -925,7 +1151,93 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1605485526117": {
+    "ApiGatewayMethodAddbookSearchvalVarSearchval2VarGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceAddbookSearchvalVarSearchval2Var"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "AddBookLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      }
+    },
+    "ApiGatewayMethodGetreccomendGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceGetreccomend"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "GetReccomendLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      }
+    },
+    "ApiGatewayDeployment1605497648346": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -939,11 +1251,15 @@
         "ApiGatewayMethodFinduserSearchvalVarOptions",
         "ApiGatewayMethodGetuserfavsSearchvalVarOptions",
         "ApiGatewayMethodRemovebookSearchvalVarSearchval2VarOptions",
+        "ApiGatewayMethodAddbookSearchvalVarSearchval2VarOptions",
+        "ApiGatewayMethodGetreccomendOptions",
         "ApiGatewayMethodGetbooksGet",
         "ApiGatewayMethodGetasearchSearchvalVarGet",
         "ApiGatewayMethodFinduserSearchvalVarGet",
         "ApiGatewayMethodGetuserfavsSearchvalVarGet",
-        "ApiGatewayMethodRemovebookSearchvalVarSearchval2VarGet"
+        "ApiGatewayMethodRemovebookSearchvalVarSearchval2VarGet",
+        "ApiGatewayMethodAddbookSearchvalVarSearchval2VarGet",
+        "ApiGatewayMethodGetreccomendGet"
       ]
     },
     "GetBooksLambdaPermissionApiGateway": {
@@ -1130,6 +1446,80 @@
           ]
         }
       }
+    },
+    "AddBookLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "AddBookLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
+    },
+    "GetReccomendLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetReccomendLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
     }
   },
   "Outputs": {
@@ -1141,31 +1531,43 @@
     "GetBooksLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetBooksLambdaVersiongVIWAHcUhi9BwVYEf4PJW6Wk4IuQGjNcOet4SGCD0"
+        "Ref": "GetBooksLambdaVersionH6JyQKvXupbGp6CgqxhN9gj7NHLV8NOtYnKWwHTEM"
       }
     },
     "GetSearchLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetSearchLambdaVersionj4mXnQzoqP5jGnJrQfllvyiVafjp86o5S1ae7nJyMM"
+        "Ref": "GetSearchLambdaVersionikhoJ8U2fDjfw4cLrjYoRrqx8kMdpbgowxj44cGpyAw"
       }
     },
     "FindUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "FindUserLambdaVersionNQSevbIuZPF4QvPDU5yL2otMoE8f2Kwt0o721tSjus"
+        "Ref": "FindUserLambdaVersionNQKWGycAU8MgrkrjadLByMPQGNLFCxUQOqmHIkBMFo"
       }
     },
     "GetUserFavsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetUserFavsLambdaVersionctD7ubI7i0QwcgBxEjO7odWMaLw8kpfWWYTfjx4qQg"
+        "Ref": "GetUserFavsLambdaVersionjDGjKG2lRA6zg1MeP0pexiRC1zlDG6ZtSdabkrZeuc"
       }
     },
     "RemoveBookLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RemoveBookLambdaVersionGCIdXnKGsHGsTuiY3Y5oh3Pf4htGIkZZyuhUIAmHk"
+        "Ref": "RemoveBookLambdaVersionDUpkCIArJSmkLqCiWlrL0LNhFVKtTOhTy0lHLk5zCCs"
+      }
+    },
+    "AddBookLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "AddBookLambdaVersion4rYqAfHLIDN6jbV9gNj19ijQ7rF7gWAHWq3EVrBRos"
+      }
+    },
+    "GetReccomendLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "GetReccomendLambdaVersionRCNSBJJFghpo70612q9orwBq12ln1gEZhCzzdJEc"
       }
     },
     "ServiceEndpoint": {
